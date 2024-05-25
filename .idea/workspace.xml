@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/runnable/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
+    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="начало, базочка">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/runnable/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +51,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\resources\runnable" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="runnable.Main" />
@@ -79,11 +73,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716673747087</updated>
-      <workItem from="1716673748131" duration="350000" />
+      <workItem from="1716673748131" duration="2279000" />
     </task>
+    <task id="LOCAL-00001" summary="начало, базочка">
+      <option name="closed" value="true" />
+      <created>1716674125726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716674125726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="начало, базочка" />
+    <option name="LAST_COMMIT_MESSAGE" value="начало, базочка" />
   </component>
 </project>
