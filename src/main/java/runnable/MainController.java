@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import static backend.Methods.getPolynomialApproximation;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {
@@ -40,8 +41,8 @@ public class MainController implements Initializable {
         String[] xText = textFieldOne.getText().split("\\s+");
         String[] yText = textFieldTwo.getText().split("\\s+");
 
-        System.out.println(Arrays.toString(xText));
-        System.out.println(Arrays.toString(yText));
+/*        System.out.println(Arrays.toString(xText));
+        System.out.println(Arrays.toString(yText));*/
 
         if (xText.length != yText.length) return null;
 
@@ -61,8 +62,10 @@ public class MainController implements Initializable {
             }
         }
 
-        System.out.println(Arrays.toString(x));
-        System.out.println(Arrays.toString(y));
+/*        System.out.println(Arrays.toString(x));
+        System.out.println(Arrays.toString(y));*/
+
+        System.out.println(Arrays.toString(getPolynomialApproximation(2, x, y)));
 
         return new double[][]{x, y};
     }
