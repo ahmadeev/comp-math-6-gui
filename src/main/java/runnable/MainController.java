@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import static backend.Methods.getPolynomialApproximation;
+import static backend.Methods.getPolynomialValue;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {
@@ -35,7 +36,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    protected double[][] handleSubmitEvent(ActionEvent event) {
+    protected void handleSubmitEvent(ActionEvent event) {
+        double[][] result = handleTextInput(event);
+        if (!isNull(result)) {
+            //drawDots(result);
+            drawLine(1, result);
+            drawLine(2, result);
+            drawLine(3, result);
+        }
+    }
+
+    private double[][] handleTextInput(ActionEvent event) {
         if (event.getSource() != submitButton) return null;
 
         String[] xText = textFieldOne.getText().split("\\s+");
@@ -65,9 +76,51 @@ public class MainController implements Initializable {
 /*        System.out.println(Arrays.toString(x));
         System.out.println(Arrays.toString(y));*/
 
-        System.out.println(Arrays.toString(getPolynomialApproximation(2, x, y)));
+        //System.out.println(Arrays.toString(getPolynomialApproximation(1, x, y)));
 
         return new double[][]{x, y};
+    }
+
+    private void drawDots(double[][] xy) {
+        double[] x = xy[0];
+        double[] y = xy[1];
+
+        int size = x.length;
+
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+
+        for(int i = 0; i < size; i++) {
+            series.getData().add(new XYChart.Data<>(x[i], y[i]));
+        }
+
+        plot.getData().add(series);
+    }
+
+    private void drawLine(int power, double[][] xy) {
+        double[] x = xy[0];
+        double[] y = xy[1];
+
+        int size = x.length;
+        double step = 0.01;
+
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+
+        for(int i = 0; i < size; i++) {
+            series.getData().add(new XYChart.Data<>(x[i], y[i]));
+        }
+
+        double a = x[0] - 10 * step;
+        double b = x[size - 1] + 10 * step;
+
+        double[] coefficients = getPolynomialApproximation(power, x, y);
+
+        while (a <= b) {
+            series.getData().add(new XYChart.Data<>(a, getPolynomialValue(a, coefficients)));
+            a += step;
+        }
+
+        plot.setCreateSymbols(false);
+        plot.getData().add(series);
     }
 
     private String validateNumber(String text) {
@@ -81,7 +134,9 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        XYChart.Series<Number, Number> seriesOne = new XYChart.Series<>();
+
+
+/*        XYChart.Series<Number, Number> seriesOne = new XYChart.Series<>();
 
         int counter = 0;
         while (counter < 100) {
@@ -89,7 +144,7 @@ public class MainController implements Initializable {
             counter++;
         }
         plot.setCreateSymbols(false);
-        plot.getData().add(seriesOne);
+        plot.getData().add(seriesOne);*/
 
 /*        Label label = new Label("нет");
         StackPane stackPane = (StackPane) splitPane.getItems().get(1);
