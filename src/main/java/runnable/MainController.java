@@ -11,14 +11,10 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import static backend.Methods.getPolynomialApproximation;
-import static backend.Methods.getPolynomialValue;
+import static backend.Methods.*;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {
-    @FXML
-    private Label welcomeText;
-
     @FXML
     private TextField textFieldOne;
     @FXML
@@ -31,18 +27,20 @@ public class MainController implements Initializable {
     public SplitPane splitPane;*/
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    @FXML
     protected void handleSubmitEvent(ActionEvent event) {
         double[][] result = handleTextInput(event);
         if (!isNull(result)) {
             //drawDots(result);
-            drawLine(1, result);
-            drawLine(2, result);
-            drawLine(3, result);
+            //drawLine(1, result);
+            //drawLine(2, result);
+            //drawLine(3, result);
+            double[] x = result[0];
+            double[] y = result[1];
+
+            System.out.println(Arrays.toString(getLogarithmicApproximation(x, y)));
+            System.out.println(Arrays.toString(getExponentialApproximation(x, y)));
+            System.out.println(Arrays.toString(getPowerFunctionApproximation(x, y)));
+
         }
     }
 

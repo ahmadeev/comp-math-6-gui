@@ -13,8 +13,6 @@
 
   <AnchorPane fx:id="stackPaneLeft" minHeight="0.0" minWidth="0.0" prefHeight="720" prefWidth="720">
 
-    <Label fx:id="welcomeText" />
-    <Button layoutX="293.0" layoutY="163.0" onAction="#onHelloButtonClick" text="Hello!" />
     <Button fx:id="submitButton" layoutX="291.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleSubmitEvent" text="Button" />
     <TextField fx:id="textFieldOne" layoutX="244.0" layoutY="272.0" />
     <TextField fx:id="textFieldTwo" layoutX="245.0" layoutY="317.0" />
