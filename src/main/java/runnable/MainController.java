@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static backend.Methods.getFunctionByNumber;
+import static backend.math.Utils.showAlert;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {
@@ -53,6 +54,10 @@ public class MainController implements Initializable {
             for(int i = 1; i <= 6; i++) {
                 drawLine(i, result);
             }
+        } else {
+            showAlert(Alert.AlertType.ERROR, "error!", "Ошибка ввода!");
+            textFieldOne.setText("");
+            textFieldTwo.setText("");
         }
     }
 

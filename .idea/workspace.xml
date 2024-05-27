@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="еййй">
+    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="вау вау вау">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/math/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/math/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716673747087</updated>
       <workItem from="1716673748131" duration="9745000" />
-      <workItem from="1716757986950" duration="10275000" />
+      <workItem from="1716757986950" duration="11054000" />
     </task>
     <task id="LOCAL-00001" summary="начало, базочка">
       <option name="closed" value="true" />
@@ -157,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716774757725</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="вау вау вау">
+      <option name="closed" value="true" />
+      <created>1716775328605</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716775328605</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,7 @@
     <MESSAGE value="все функции a???" />
     <MESSAGE value="ну интересно" />
     <MESSAGE value="еййй" />
-    <option name="LAST_COMMIT_MESSAGE" value="еййй" />
+    <MESSAGE value="вау вау вау" />
+    <option name="LAST_COMMIT_MESSAGE" value="вау вау вау" />
   </component>
 </project>
