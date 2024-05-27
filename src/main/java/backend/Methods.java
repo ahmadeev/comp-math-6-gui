@@ -59,20 +59,8 @@ public class Methods {
         return result;
     }
 
-/*    public static double calculateDeflectionAmount(Functions function, double[] x, double[] y) {
-        double result = 0;
-        for(int i = 0; i < x.length; i++) {
-            result += Math.pow(function.getValue(x[i], function.getApproximation(x, y)), 2);
-        }
-        return result;
-    }*/
-
     public static double calculateStandardDeviation(double deflectionAmount, int size) {
         return Math.pow(deflectionAmount / size, 0.5);
-    }
-
-    public static double calculateStandardDeviation(Functions function, double[] x, double[] y, double[] coefficients) {
-        return Math.pow(calculateDeflectionAmount(function, x, y, coefficients) / x.length, 0.5);
     }
 
     public static double calculateDeterminationCoefficient(double deflectionAmount, double[] y, double[] phi) {

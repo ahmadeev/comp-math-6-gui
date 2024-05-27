@@ -38,6 +38,16 @@ public class MainController implements Initializable {
 
             LinearData linearData = new LinearData(x, y);
             System.out.println(linearData.toString());
+            QuadraticData quadraticData = new QuadraticData(x, y);
+            System.out.println(quadraticData.toString());
+            CubicData cubicData = new CubicData(x, y);
+            System.out.println(cubicData.toString());
+            ExponentialData exponentialData = new ExponentialData(x, y);
+            System.out.println(exponentialData.toString());
+            LogarithmicData logarithmicData = new LogarithmicData(x, y);
+            System.out.println(logarithmicData.toString());
+            PowerFunctionData powerFunctionData = new PowerFunctionData(x, y);
+            System.out.println(powerFunctionData.toString());
 
             //drawDots(result);
             for(int i = 1; i <= 6; i++) {

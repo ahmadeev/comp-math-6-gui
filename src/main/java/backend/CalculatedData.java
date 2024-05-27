@@ -3,7 +3,7 @@ package backend;
 import java.util.Arrays;
 
 import static backend.Methods.*;
-import static runnable.Main.linear;
+import static runnable.Main.*;
 
 public class CalculatedData {
 
@@ -31,7 +31,6 @@ public class CalculatedData {
         for(int i = 0; i < size; i++) {
             phi[i] = function.getValue(x[i], coefficients);
         }
-
 
         this.deflectionAmount = calculateDeflectionAmount(function, x, y, coefficients);
         this.standardDeviation = calculateStandardDeviation(deflectionAmount, size);
@@ -98,6 +97,41 @@ public class CalculatedData {
         Functions function = linear;
         public LinearData(double[] x, double[] y) {
             super(linear, x, y);
+        }
+    }
+
+    public static class QuadraticData extends CalculatedData {
+        Functions function = quadratic;
+        public QuadraticData(double[] x, double[] y) {
+            super(quadratic, x, y);
+        }
+    }
+
+    public static class CubicData extends CalculatedData {
+        Functions function = cubic;
+        public CubicData(double[] x, double[] y) {
+            super(cubic, x, y);
+        }
+    }
+
+    public static class ExponentialData extends CalculatedData {
+        Functions function = exponential;
+        public ExponentialData(double[] x, double[] y) {
+            super(exponential, x, y);
+        }
+    }
+
+    public static class LogarithmicData extends CalculatedData {
+        Functions function = logarithmic;
+        public LogarithmicData(double[] x, double[] y) {
+            super(logarithmic, x, y);
+        }
+    }
+
+    public static class PowerFunctionData extends CalculatedData {
+        Functions function = powerFunction;
+        public PowerFunctionData(double[] x, double[] y) {
+            super(powerFunction, x, y);
         }
     }
 
