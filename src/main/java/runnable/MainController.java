@@ -1,5 +1,6 @@
 package runnable;
 
+import backend.Methods.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +12,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import static backend.Methods.*;
 import static java.util.Objects.isNull;
+import static runnable.Main.*;
 
 public class MainController implements Initializable {
     @FXML
@@ -23,8 +24,6 @@ public class MainController implements Initializable {
     private Button submitButton;
     @FXML
     private LineChart<Number, Number> plot;
-/*    @FXML
-    public SplitPane splitPane;*/
 
     @FXML
     protected void handleSubmitEvent(ActionEvent event) {
@@ -37,9 +36,9 @@ public class MainController implements Initializable {
             double[] x = result[0];
             double[] y = result[1];
 
-            System.out.println(Arrays.toString(getLogarithmicApproximation(x, y)));
-            System.out.println(Arrays.toString(getExponentialApproximation(x, y)));
-            System.out.println(Arrays.toString(getPowerFunctionApproximation(x, y)));
+            System.out.println(Arrays.toString(logarithmic.getApproximation(x, y)));
+            System.out.println(Arrays.toString(exponential.getApproximation(x, y)));
+            System.out.println(Arrays.toString(powerFunction.getApproximation(x, y)));
 
         }
     }
@@ -110,10 +109,10 @@ public class MainController implements Initializable {
         double a = x[0] - 10 * step;
         double b = x[size - 1] + 10 * step;
 
-        double[] coefficients = getPolynomialApproximation(power, x, y);
+        double[] coefficients = polynomial.getApproximation(power, x, y);
 
         while (a <= b) {
-            series.getData().add(new XYChart.Data<>(a, getPolynomialValue(a, coefficients)));
+            series.getData().add(new XYChart.Data<>(a, polynomial.getValue(a, coefficients)));
             a += step;
         }
 
