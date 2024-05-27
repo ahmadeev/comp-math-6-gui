@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="вау вау вау">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/math/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/math/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="вау вау вау" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -64,6 +59,7 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\resources\styles" />
       <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\java\runnable" />
+      <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src" />
       <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\resources\runnable" />
     </key>
   </component>
@@ -172,6 +168,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="начало, базочка" />
