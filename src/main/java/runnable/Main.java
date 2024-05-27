@@ -1,5 +1,6 @@
 package runnable;
 
+import backend.CalculatedData.*;
 import backend.Methods.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,6 @@ public class Main extends Application {
     public static Exponential exponential = new Exponential();
     public static Logarithmic logarithmic = new Logarithmic();
     public static PowerFunction powerFunction = new PowerFunction();
-
 
     @Override
     public void start(Stage stage) throws IOException {

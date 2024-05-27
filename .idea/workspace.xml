@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="все функции a???">
+    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="ну интересно">
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/styles/chart-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/Functions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/runnable/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +63,8 @@
       <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\java\backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\resources\styles" />
+      <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\java\runnable" />
       <recent name="C:\Users\danis\OneDrive\Рабочий стол\comp-math-lab-4-gui\src\main\resources\runnable" />
     </key>
   </component>
@@ -82,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716673747087</updated>
       <workItem from="1716673748131" duration="9745000" />
-      <workItem from="1716757986950" duration="6816000" />
+      <workItem from="1716757986950" duration="9735000" />
     </task>
     <task id="LOCAL-00001" summary="начало, базочка">
       <option name="closed" value="true" />
@@ -140,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716769544127</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ну интересно">
+      <option name="closed" value="true" />
+      <created>1716771598488</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716771598488</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +166,7 @@
     <MESSAGE value="уже чуть грустно" />
     <MESSAGE value="все функции" />
     <MESSAGE value="все функции a???" />
-    <option name="LAST_COMMIT_MESSAGE" value="все функции a???" />
+    <MESSAGE value="ну интересно" />
+    <option name="LAST_COMMIT_MESSAGE" value="ну интересно" />
   </component>
 </project>

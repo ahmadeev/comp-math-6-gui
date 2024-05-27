@@ -1,6 +1,8 @@
 package runnable;
 
+import backend.CalculatedData.*;
 import backend.Functions;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +33,12 @@ public class MainController implements Initializable {
 
         double[][] result = handleTextInput(event);
         if (!isNull(result)) {
+            double[] x = result[0];
+            double[] y = result[1];
+
+            LinearData linearData = new LinearData(x, y);
+            System.out.println(linearData.toString());
+
             //drawDots(result);
             for(int i = 1; i <= 6; i++) {
                 drawLine(i, result);
@@ -78,6 +86,12 @@ public class MainController implements Initializable {
         }
 
         plot.getData().add(series);
+
+*//*        Platform.runLater(() -> {
+            //series.getNode().setStyle("-fx-stroke: red; -fx-stroke-width: 0px;");
+            String css = Main.class.getResource("chart-style.css").toExternalForm();
+            plot.getStylesheets().add(css);
+        });*//*
     }*/
 
     private void drawLine(int number, double[][] xy) {

@@ -15,6 +15,15 @@ public class Methods {
     6. Степенная
      */
 
+    /*  Вид функций:
+    1. phi = ax + b
+    2. phi = ax^2 + bx + c
+    3. phi = ax^3 + bx^2 + cx + d
+    4. phi = a * e^(bx)
+    5. phi = a * lnx + b
+    6. phi = a * x^b
+     */
+
     public static Functions getFunctionByNumber(int number) {
         switch (number) {
             case 1: {
@@ -42,16 +51,44 @@ public class Methods {
         }
     }
 
-    public static double getDeflectionAmount(Functions function, double[] x, double[] y) {
+    public static double calculateDeflectionAmount(Functions function, double[] x, double[] y, double[] coefficients) {
+        double result = 0;
+        for (int i = 0; i < x.length; i++) {
+            result += Math.pow(function.getValue(x[i], coefficients) - y[i], 2);
+        }
+        return result;
+    }
+
+/*    public static double calculateDeflectionAmount(Functions function, double[] x, double[] y) {
         double result = 0;
         for(int i = 0; i < x.length; i++) {
             result += Math.pow(function.getValue(x[i], function.getApproximation(x, y)), 2);
         }
         return result;
+    }*/
+
+    public static double calculateStandardDeviation(double deflectionAmount, int size) {
+        return Math.pow(deflectionAmount / size, 0.5);
     }
 
-    public static double getStandardDeviation(Functions function, double[] x, double[] y) {
-        return Math.pow(getDeflectionAmount(function, x, y) / x.length, 0.5);
+    public static double calculateStandardDeviation(Functions function, double[] x, double[] y, double[] coefficients) {
+        return Math.pow(calculateDeflectionAmount(function, x, y, coefficients) / x.length, 0.5);
+    }
+
+    public static double calculateDeterminationCoefficient(double deflectionAmount, double[] y, double[] phi) {
+        int size = phi.length;
+        double arrSum = 0;
+        for(double i : phi) {
+            arrSum += i;
+        }
+        arrSum /= size;
+
+        double below = 0;
+        for(int i = 0; i < size; i++) {
+            below += Math.pow((y[i] - arrSum), 2);
+        }
+
+        return (1 - deflectionAmount / below);
     }
 
     public static class Polynomial {
