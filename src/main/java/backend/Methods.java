@@ -42,6 +42,18 @@ public class Methods {
         }
     }
 
+    public static double getDeflectionAmount(Functions function, double[] x, double[] y) {
+        double result = 0;
+        for(int i = 0; i < x.length; i++) {
+            result += Math.pow(function.getValue(x[i], function.getApproximation(x, y)), 2);
+        }
+        return result;
+    }
+
+    public static double getStandardDeviation(Functions function, double[] x, double[] y) {
+        return Math.pow(getDeflectionAmount(function, x, y) / x.length, 0.5);
+    }
+
     public static class Polynomial {
         public double[] getApproximation(int n, double[] x, double[] y) {
 

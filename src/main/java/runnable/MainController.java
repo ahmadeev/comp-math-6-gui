@@ -1,6 +1,6 @@
 package runnable;
 
-import backend.Methods.*;
+import backend.Functions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +9,10 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import static backend.Methods.getFunctionByNumber;
 import static java.util.Objects.isNull;
-import static runnable.Main.*;
 
 public class MainController implements Initializable {
     @FXML
@@ -27,19 +26,15 @@ public class MainController implements Initializable {
 
     @FXML
     protected void handleSubmitEvent(ActionEvent event) {
+
+        plot.getData().clear();
+
         double[][] result = handleTextInput(event);
         if (!isNull(result)) {
             //drawDots(result);
-            //drawLine(1, result);
-            //drawLine(2, result);
-            //drawLine(3, result);
-            double[] x = result[0];
-            double[] y = result[1];
-
-            System.out.println(Arrays.toString(logarithmic.getApproximation(x, y)));
-            System.out.println(Arrays.toString(exponential.getApproximation(x, y)));
-            System.out.println(Arrays.toString(powerFunction.getApproximation(x, y)));
-
+            for(int i = 1; i <= 6; i++) {
+                drawLine(i, result);
+            }
         }
     }
 
@@ -48,9 +43,6 @@ public class MainController implements Initializable {
 
         String[] xText = textFieldOne.getText().split("\\s+");
         String[] yText = textFieldTwo.getText().split("\\s+");
-
-/*        System.out.println(Arrays.toString(xText));
-        System.out.println(Arrays.toString(yText));*/
 
         if (xText.length != yText.length) return null;
 
@@ -70,15 +62,10 @@ public class MainController implements Initializable {
             }
         }
 
-/*        System.out.println(Arrays.toString(x));
-        System.out.println(Arrays.toString(y));*/
-
-        //System.out.println(Arrays.toString(getPolynomialApproximation(1, x, y)));
-
         return new double[][]{x, y};
     }
 
-    private void drawDots(double[][] xy) {
+/*    private void drawDots(double[][] xy) {
         double[] x = xy[0];
         double[] y = xy[1];
 
@@ -91,9 +78,9 @@ public class MainController implements Initializable {
         }
 
         plot.getData().add(series);
-    }
+    }*/
 
-    private void drawLine(int power, double[][] xy) {
+    private void drawLine(int number, double[][] xy) {
         double[] x = xy[0];
         double[] y = xy[1];
 
@@ -109,13 +96,16 @@ public class MainController implements Initializable {
         double a = x[0] - 10 * step;
         double b = x[size - 1] + 10 * step;
 
-        double[] coefficients = polynomial.getApproximation(power, x, y);
+        Functions function = getFunctionByNumber(number);
+
+        double[] coefficients = function.getApproximation(x, y);
 
         while (a <= b) {
-            series.getData().add(new XYChart.Data<>(a, polynomial.getValue(a, coefficients)));
+            series.getData().add(new XYChart.Data<>(a, function.getValue(a, coefficients)));
             a += step;
         }
 
+        series.setName(function.getClass().getSimpleName());
         plot.setCreateSymbols(false);
         plot.getData().add(series);
     }
