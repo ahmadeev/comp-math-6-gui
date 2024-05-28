@@ -5,4 +5,7 @@ module com.example.compmathlab4gui {
                             
     opens runnable to javafx.fxml;
     exports runnable;
+
+    opens backend to javafx.fxml;
+    exports backend;
 }

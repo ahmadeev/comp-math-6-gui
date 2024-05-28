@@ -1,16 +1,21 @@
 package runnable;
 
+import backend.CalculatedData;
 import backend.CalculatedData.*;
 import backend.Functions;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static backend.Methods.getFunctionByNumber;
@@ -26,6 +31,15 @@ public class MainController implements Initializable {
     private Button submitButton;
     @FXML
     private LineChart<Number, Number> plot;
+
+    @FXML
+    private TableView<CalculatedData> dataTable;
+    @FXML
+    private TableColumn<CalculatedData, Double> deflectionAmount;
+    @FXML
+    private TableColumn<CalculatedData, Double> standardDeviation;
+    @FXML
+    private TableColumn<CalculatedData, Double> determinationCoefficient;
 
     @FXML
     protected void handleSubmitEvent(ActionEvent event) {
@@ -56,10 +70,26 @@ public class MainController implements Initializable {
                 PowerFunctionData powerFunctionData = new PowerFunctionData(x, y);
                 System.out.println(powerFunctionData.toString());
 
+                CalculatedData linearData2 = new LinearData(x, y);
+                CalculatedData quadraticData2 = new QuadraticData(x, y);
+                CalculatedData cubicData2 = new CubicData(x, y);
+                CalculatedData exponentialData2 = new ExponentialData(x, y);
+                CalculatedData logarithmicData2 = new LogarithmicData(x, y);
+                CalculatedData powerFunctionData2 = new PowerFunctionData(x, y);
+
+                ObservableList<CalculatedData> tableData = FXCollections.observableArrayList(linearData2, quadraticData2, cubicData2, exponentialData2, logarithmicData2, powerFunctionData2);
+
                 //drawDots(result);
                 for(int i = 1; i <= 6; i++) {
                     drawLine(i, result);
                 }
+
+                deflectionAmount.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("deflectionAmount"));
+                standardDeviation.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("standardDeviation"));
+                determinationCoefficient.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("determinationCoefficient"));
+
+                dataTable.setItems(tableData);
+
             }
         } else {
             showAlert(Alert.AlertType.ERROR, "error!", "Введены некорректные данные!");
