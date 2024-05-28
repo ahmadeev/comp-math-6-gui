@@ -37,6 +37,12 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<CalculatedData, String> functionName;
     @FXML
+    private TableColumn<CalculatedData, Double> a;
+    @FXML
+    private TableColumn<CalculatedData, Double> b;
+    @FXML
+    private TableColumn<CalculatedData, Double> c;
+    @FXML
     private TableColumn<CalculatedData, Double> deflectionAmount;
     @FXML
     private TableColumn<CalculatedData, Double> standardDeviation;
@@ -85,6 +91,10 @@ public class MainController implements Initializable {
                 for(int i = 1; i <= 6; i++) {
                     drawLine(i, result);
                 }
+
+                a.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("a"));
+                b.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("b"));
+                c.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("c"));
 
                 functionName.setCellValueFactory(new PropertyValueFactory<CalculatedData, String>("functionName"));
                 deflectionAmount.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("deflectionAmount"));

@@ -22,12 +22,16 @@
       <Label layoutX="226.0" layoutY="133.0" text="x:" />
       <Label layoutX="226.0" layoutY="178.0" text="y:" />
 
-    <TableView fx:id="dataTable" layoutX="130.0" layoutY="275.0" prefHeight="175.0" prefWidth="400.0">
+    <TableView fx:id="dataTable" layoutX="130.0" layoutY="275.0" prefHeight="175.0" prefWidth="420.0">
       <columns>
-        <TableColumn fx:id="functionName" prefWidth="100.0" text="functionName" />
-        <TableColumn fx:id="deflectionAmount" prefWidth="100.0" text="deflectionAmount" />
-        <TableColumn fx:id="standardDeviation" prefWidth="100.0" text="standardDeviation" />
-        <TableColumn fx:id="determinationCoefficient" prefWidth="100.0" text="determinationCoefficient" />
+        <TableColumn fx:id="a" prefWidth="60.0" text="a" />
+        <TableColumn fx:id="b" prefWidth="60.0" text="b" />
+        <TableColumn fx:id="c" prefWidth="60.0" text="c" />
+
+        <TableColumn fx:id="functionName" prefWidth="60.0" text="functionName" />
+        <TableColumn fx:id="deflectionAmount" prefWidth="60.0" text="deflectionAmount" />
+        <TableColumn fx:id="standardDeviation" prefWidth="60.0" text="standardDeviation" />
+        <TableColumn fx:id="determinationCoefficient" prefWidth="60.0" text="determinationCoefficient" />
       </columns>
     </TableView>
 

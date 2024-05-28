@@ -20,6 +20,10 @@ public class CalculatedData {
     private double standardDeviation;
     private double determinationCoefficient;
 
+    private double a;
+    private double b;
+    private double c;
+
     public CalculatedData(Functions function, double[] x, double[] y) {
         this.function = function;
         this.functionName = function.getClass().getSimpleName();
@@ -28,6 +32,10 @@ public class CalculatedData {
         this.y = y;
 
         this.coefficients = function.getApproximation(x, y);
+        this.a = coefficients[0];
+        this.b = coefficients[1];
+        if (coefficients.length == 3) this.c = coefficients[2];
+        else this.c = 0;
 
         int size = x.length;
         this.phi = new double[size];
@@ -38,6 +46,30 @@ public class CalculatedData {
         this.deflectionAmount = calculateDeflectionAmount(function, x, y, coefficients);
         this.standardDeviation = calculateStandardDeviation(deflectionAmount, size);
         this.determinationCoefficient = calculateDeterminationCoefficient(deflectionAmount, y, phi);
+    }
+
+    public double getA() {
+        return a;
+    }
+
+    public void setA(double a) {
+        this.a = a;
+    }
+
+    public double getB() {
+        return b;
+    }
+
+    public void setB(double b) {
+        this.b = b;
+    }
+
+    public double getC() {
+        return c;
+    }
+
+    public void setC(double c) {
+        this.c = c;
     }
 
     public String getFunctionName() {
@@ -143,6 +175,7 @@ public class CalculatedData {
     @Override
     public String toString() {
         return
+        "a, b, c: " + a + ", " + b + ", " + c + "\n" +
         "x: " + Arrays.toString(x) + "\n" +
         "y: " + Arrays.toString(y) + "\n" +
         "phi: " + Arrays.toString(phi) + "\n" +
