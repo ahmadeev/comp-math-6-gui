@@ -9,6 +9,8 @@ public class CalculatedData {
 
     Functions function;
 
+    private String functionName;
+
     private double[] x;
     private double[] y;
     private double[] phi;
@@ -20,6 +22,7 @@ public class CalculatedData {
 
     public CalculatedData(Functions function, double[] x, double[] y) {
         this.function = function;
+        this.functionName = function.getClass().getSimpleName();
 
         this.x = x;
         this.y = y;
@@ -35,6 +38,14 @@ public class CalculatedData {
         this.deflectionAmount = calculateDeflectionAmount(function, x, y, coefficients);
         this.standardDeviation = calculateStandardDeviation(deflectionAmount, size);
         this.determinationCoefficient = calculateDeterminationCoefficient(deflectionAmount, y, phi);
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    public void setFunctionName(String functionName) {
+        this.functionName = functionName;
     }
 
     public double[] getX() {

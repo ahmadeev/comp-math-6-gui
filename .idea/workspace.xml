@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="вау вау вау">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="сюда, если что">
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/CalculatedData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
     </list>
@@ -86,7 +86,7 @@
       <updated>1716673747087</updated>
       <workItem from="1716673748131" duration="9745000" />
       <workItem from="1716757986950" duration="11054000" />
-      <workItem from="1716855801993" duration="1101000" />
+      <workItem from="1716855801993" duration="1531000" />
     </task>
     <task id="LOCAL-00001" summary="начало, базочка">
       <option name="closed" value="true" />
@@ -168,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716775328605</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="сюда, если что">
+      <option name="closed" value="true" />
+      <created>1716857118965</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716857118965</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +204,7 @@
     <MESSAGE value="ну интересно" />
     <MESSAGE value="еййй" />
     <MESSAGE value="вау вау вау" />
-    <option name="LAST_COMMIT_MESSAGE" value="вау вау вау" />
+    <MESSAGE value="сюда, если что" />
+    <option name="LAST_COMMIT_MESSAGE" value="сюда, если что" />
   </component>
 </project>

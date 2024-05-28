@@ -24,6 +24,7 @@
 
     <TableView fx:id="dataTable" layoutX="118.0" layoutY="270.0" prefHeight="420.0" prefWidth="420.0">
       <columns>
+        <TableColumn fx:id="functionName" prefWidth="70" text="functionName" />
         <TableColumn fx:id="deflectionAmount" prefWidth="70" text="deflectionAmount" />
         <TableColumn fx:id="standardDeviation" prefWidth="70" text="standardDeviation" />
         <TableColumn fx:id="determinationCoefficient" prefWidth="70" text="determinationCoefficient" />

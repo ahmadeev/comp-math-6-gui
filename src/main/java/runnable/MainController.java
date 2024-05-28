@@ -35,6 +35,8 @@ public class MainController implements Initializable {
     @FXML
     private TableView<CalculatedData> dataTable;
     @FXML
+    private TableColumn<CalculatedData, String> functionName;
+    @FXML
     private TableColumn<CalculatedData, Double> deflectionAmount;
     @FXML
     private TableColumn<CalculatedData, Double> standardDeviation;
@@ -84,6 +86,7 @@ public class MainController implements Initializable {
                     drawLine(i, result);
                 }
 
+                functionName.setCellValueFactory(new PropertyValueFactory<CalculatedData, String>("functionName"));
                 deflectionAmount.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("deflectionAmount"));
                 standardDeviation.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("standardDeviation"));
                 determinationCoefficient.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("determinationCoefficient"));
