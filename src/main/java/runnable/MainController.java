@@ -168,7 +168,7 @@ public class MainController implements Initializable {
         if (!isNull(xyArray)) {
             String content =
                     "x: " + Arrays.toString(xyArray[0]) + "\n" +
-                            "y: " + Arrays.toString(xyArray[1]);
+                    "y: " + Arrays.toString(xyArray[1]);
             showAlert(Alert.AlertType.INFORMATION, "xy", content);
         } else {
             showAlert(Alert.AlertType.ERROR, "xy", "Сначала введите точки x и y!");
