@@ -15,7 +15,7 @@
 
   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720" prefWidth="720">
 
-    <Button fx:id="submitButton" layoutX="302.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleSubmitEvent" text="submit" />
+    <Button fx:id="submitButton" layoutX="340.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleSubmitEvent" prefHeight="30.0" prefWidth="64.0" text="submit" />
     <TextField fx:id="textFieldOne" layoutX="254.0" layoutY="129.0" />
     <TextField fx:id="textFieldTwo" layoutX="255.0" layoutY="174.0" />
       <Label layoutX="249.0" layoutY="94.0" text="Введите точки через пробел:" />
@@ -34,6 +34,8 @@
         <TableColumn fx:id="determinationCoefficient" prefWidth="60.0" text="determinationCoefficient" />
       </columns>
     </TableView>
+      <Button fx:id="xy" layoutX="298.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleXYButton" prefHeight="30.0" prefWidth="30.0" text="xy" />
+      <Button fx:id="r" layoutX="255.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleRButton" prefHeight="30.0" prefWidth="30.0" text="r" />
 
   </AnchorPane>
 

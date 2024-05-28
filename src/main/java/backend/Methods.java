@@ -79,6 +79,32 @@ public class Methods {
         return (1 - deflectionAmount / below);
     }
 
+    public static double calculatePearsonCoefficient(double[] x, double[] y) {
+        int size = x.length;
+        double xAverage = 0;
+        double yAverage = 0;
+        for(int i = 0; i < size; i++) {
+            xAverage += x[i];
+            yAverage += y[i];
+        }
+        xAverage /= size;
+        yAverage /= size;
+
+        double above = 0;
+        for(int i = 0; i < size; i++) {
+            above += (x[i] - xAverage) * (y[i] - yAverage);
+        }
+
+        double belowX = 0;
+        double belowY = 0;
+        for(int i = 0; i < size; i++) {
+            belowX += Math.pow(x[i] - xAverage, 2);
+            belowY += Math.pow(y[i] - yAverage, 2);
+        }
+
+        return above / Math.pow(belowX * belowY, 0.5);
+    }
+
     public static class Polynomial {
         public double[] getApproximation(int n, double[] x, double[] y) {
 

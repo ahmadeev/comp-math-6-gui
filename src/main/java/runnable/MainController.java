@@ -16,13 +16,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import static backend.Methods.calculatePearsonCoefficient;
 import static backend.Methods.getFunctionByNumber;
 import static backend.math.Utils.showAlert;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {
+    private static double rValue;
+    private static double[][] xyArray;
+
     @FXML
     private TextField textFieldOne;
     @FXML
@@ -31,6 +36,11 @@ public class MainController implements Initializable {
     private Button submitButton;
     @FXML
     private LineChart<Number, Number> plot;
+
+    @FXML
+    private Button r;
+    @FXML
+    private Button xy;
 
     @FXML
     private TableView<CalculatedData> dataTable;
@@ -62,30 +72,25 @@ public class MainController implements Initializable {
                 textFieldOne.setText("");
                 textFieldTwo.setText("");
             } else {
+                xyArray = result;
                 double[] x = result[0];
                 double[] y = result[1];
 
-                LinearData linearData = new LinearData(x, y);
+                CalculatedData linearData = new LinearData(x, y);
+                CalculatedData quadraticData = new QuadraticData(x, y);
+                CalculatedData cubicData = new CubicData(x, y);
+                CalculatedData exponentialData = new ExponentialData(x, y);
+                CalculatedData logarithmicData = new LogarithmicData(x, y);
+                CalculatedData powerFunctionData = new PowerFunctionData(x, y);
+
                 System.out.println(linearData.toString());
-                QuadraticData quadraticData = new QuadraticData(x, y);
                 System.out.println(quadraticData.toString());
-                CubicData cubicData = new CubicData(x, y);
                 System.out.println(cubicData.toString());
-                ExponentialData exponentialData = new ExponentialData(x, y);
                 System.out.println(exponentialData.toString());
-                LogarithmicData logarithmicData = new LogarithmicData(x, y);
                 System.out.println(logarithmicData.toString());
-                PowerFunctionData powerFunctionData = new PowerFunctionData(x, y);
                 System.out.println(powerFunctionData.toString());
 
-                CalculatedData linearData2 = new LinearData(x, y);
-                CalculatedData quadraticData2 = new QuadraticData(x, y);
-                CalculatedData cubicData2 = new CubicData(x, y);
-                CalculatedData exponentialData2 = new ExponentialData(x, y);
-                CalculatedData logarithmicData2 = new LogarithmicData(x, y);
-                CalculatedData powerFunctionData2 = new PowerFunctionData(x, y);
-
-                ObservableList<CalculatedData> tableData = FXCollections.observableArrayList(linearData2, quadraticData2, cubicData2, exponentialData2, logarithmicData2, powerFunctionData2);
+                ObservableList<CalculatedData> tableData = FXCollections.observableArrayList(linearData, quadraticData, cubicData, exponentialData, logarithmicData, powerFunctionData);
 
                 //drawDots(result);
                 for(int i = 1; i <= 6; i++) {
@@ -102,6 +107,8 @@ public class MainController implements Initializable {
                 determinationCoefficient.setCellValueFactory(new PropertyValueFactory<CalculatedData, Double>("determinationCoefficient"));
 
                 dataTable.setItems(tableData);
+
+                rValue = calculatePearsonCoefficient(x, y);
 
             }
         } else {
@@ -136,6 +143,27 @@ public class MainController implements Initializable {
         }
 
         return new double[][]{x, y};
+    }
+
+    @FXML
+    protected void handleRButton() {
+        if (rValue != 0) {
+            showAlert(Alert.AlertType.INFORMATION, "r", "Коэффициент корреляции Пирсона: " + rValue);
+        } else {
+            showAlert(Alert.AlertType.ERROR, "r", "Сначала введите точки x и y!");
+        }
+    }
+
+    @FXML
+    protected void handleXYButton() {
+        if (!isNull(xyArray)) {
+            String content =
+                    "x: " + Arrays.toString(xyArray[0]) + "\n" +
+                            "y: " + Arrays.toString(xyArray[1]);
+            showAlert(Alert.AlertType.INFORMATION, "xy", content);
+        } else {
+            showAlert(Alert.AlertType.ERROR, "xy", "Сначала введите точки x и y!");
+        }
     }
 
 /*    private void drawDots(double[][] xy) {
