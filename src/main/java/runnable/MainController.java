@@ -148,7 +148,16 @@ public class MainController implements Initializable {
     @FXML
     protected void handleRButton() {
         if (rValue != 0) {
-            showAlert(Alert.AlertType.INFORMATION, "r", "Коэффициент корреляции Пирсона: " + rValue);
+            String content =
+                    """
+                            \n \nПри r = ±1 -- строгая линейная функциональная зависимость
+                            При r = 0 -- линейная связь между переменными отсутствует
+                            r < 0,3 -- связь слабая
+                            r = 0,3 ÷ 0,5 -- связь умеренная
+                            r = 0,7 ÷ 0,7 -- связь заметная
+                            r = 0,7 ÷ 0,9 -- связь высокая
+                            r = 0,9 ÷ 0,99 -- связь весьма высокая""";
+            showAlert(Alert.AlertType.INFORMATION, "r", "Коэффициент корреляции Пирсона: " + rValue + content);
         } else {
             showAlert(Alert.AlertType.ERROR, "r", "Сначала введите точки x и y!");
         }
