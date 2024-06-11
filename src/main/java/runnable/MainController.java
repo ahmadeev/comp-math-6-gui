@@ -205,9 +205,10 @@ public class MainController implements Initializable {
 
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
 
-        for(int i = 0; i < size; i++) {
-            series.getData().add(new XYChart.Data<>(x[i], y[i]));
-        }
+
+//        for(int i = 0; i < size; i++) {
+//            series.getData().add(new XYChart.Data<>(x[i], y[i]));
+//        }
 
         double a = x[0] - 10 * step;
         double b = x[size - 1] + 10 * step;
@@ -220,6 +221,8 @@ public class MainController implements Initializable {
             series.getData().add(new XYChart.Data<>(a, function.getValue(a, coefficients)));
             a += step;
         }
+
+        plot.setAxisSortingPolicy(LineChart.SortingPolicy.NONE);
 
         series.setName(function.getClass().getSimpleName());
         plot.setCreateSymbols(false);

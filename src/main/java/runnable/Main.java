@@ -34,6 +34,11 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
+        for(double i = 0; i <= 2; i += 0.2) {
+            System.out.println(i + " : " + 12 * i / (Math.pow(i, 4) + 1));
+        }
+
         launch();
     }
 }
