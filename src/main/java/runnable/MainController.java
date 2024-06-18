@@ -1,5 +1,7 @@
 package runnable;
 
+import backend.DifMath;
+import backend.Result;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +11,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static backend.Methods.getEquationByNumber;
 import static backend.Utils.showAlert;
 import static java.util.Objects.isNull;
 
@@ -45,6 +48,8 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<> whatToDo;*/
 
+    private static int equationNumber = -1;
+
     @FXML
     protected void handleSubmitEvent(ActionEvent event) {
 
@@ -53,9 +58,17 @@ public class MainController implements Initializable {
         double[] result = handleTextInput(event);
         if (!isNull(result)) {
 
+            if (equationNumber == -1) {
+                showAlert(Alert.AlertType.ERROR, "Ошибка!", "Выберите уравнение!");
+            } else {
+                Result eulerResult = DifMath.Euler.getValue(getEquationByNumber(equationNumber), result[0], result[1], result[2], result[3]);
+                Result rungeKuttaResult = DifMath.RungeKutta.getValue(getEquationByNumber(equationNumber), result[0], result[1], result[2], result[3]);
+            }
+
         } else {
             showAlert(Alert.AlertType.ERROR, "Ошибка!", "Введены некорректные данные!");
         }
+        equationNumber = -1;
     }
 
     private double[] handleTextInput(ActionEvent event) {
@@ -88,15 +101,15 @@ public class MainController implements Initializable {
 
     @FXML
     protected void handleEquationPickButton(ActionEvent event) {
-        int equationNumber = -1;
+        int number = -1;
         if (event.getSource() == eB_1) {
-            equationNumber = 1;
+            number = 1;
         } else if (event.getSource() == eB_2) {
-            equationNumber = 2;
+            number = 2;
         }  else if (event.getSource() == eB_3) {
-            equationNumber = 3;
+            number = 3;
         }
-
+        equationNumber = number;
     }
 
     private String validateNumber(String text) {
@@ -111,5 +124,11 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("я родился!");
+
+        TF_1.setText("-1");
+        TF_2.setText("1");
+        TF_3.setText("1.5");
+        TF_4.setText("0,1");
+        TF_5.setText("0,01");
     }
 }
