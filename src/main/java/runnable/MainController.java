@@ -68,10 +68,16 @@ public class MainController implements Initializable {
         String tfFiveText = validateNumber(TF_5.getText().trim());
 
         if (!isNull(tfOneText) && !isNull(tfTwoText) && !isNull(tfThreeText) && !isNull(tfFourText) && !isNull(tfFiveText)) {
+
+            double a = Double.parseDouble(tfTwoText);
+            double b = Double.parseDouble(tfThreeText);
+
+            if (a >= b) return null;
+
             return (new double[] {
                     Double.parseDouble(tfOneText),
-                    Double.parseDouble(tfTwoText),
-                    Double.parseDouble(tfThreeText),
+                    a,
+                    b,
                     Double.parseDouble(tfFourText),
                     Double.parseDouble(tfFiveText),
             });

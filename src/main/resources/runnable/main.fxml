@@ -19,7 +19,7 @@
 
     <TableView fx:id="dataTable" layoutX="247.0" layoutY="390.0" prefHeight="175.0" prefWidth="180.0">
       <columns>
-        <TableColumn prefWidth="60.0" text="x" fx:id="x" />
+        <TableColumn fx:id="x" prefWidth="60.0" text="x" />
         <TableColumn fx:id="y" prefWidth="60.0" text="y" />
         <TableColumn fx:id="whatToDo" prefWidth="60.0" text="whatToDo" />
       </columns>
