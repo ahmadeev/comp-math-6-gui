@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static backend.math.Utils.showAlert;
+import static backend.Utils.showAlert;
 import static java.util.Objects.isNull;
 
 public class MainController implements Initializable {

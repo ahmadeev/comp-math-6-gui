@@ -1,5 +1,6 @@
 package runnable;
 
+import backend.Function;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +9,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+
+    public static Function functionOne = new Function.FunctionOne();
+    public static Function functionTwo = new Function.FunctionTwo();
+    public static Function functionThree = new Function.FunctionThree();
 
     @Override
     public void start(Stage stage) throws IOException {
