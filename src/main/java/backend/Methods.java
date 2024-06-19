@@ -122,6 +122,31 @@ public abstract class Methods {
             ArrayList<Double> xs = firstThree.getX();
             ArrayList<Double> ys = firstThree.getY();
 
+
+            int counter = 3;
+            double previousY;
+            while (xs.get(counter) < b) {
+
+                previousY = ys.get(counter);
+
+                double fi = function.getValue(xs.get(counter), ys.get(counter));
+                double fi_1 = function.getValue(xs.get(counter - 1), ys.get(counter - 1));
+                double fi_2 = function.getValue(xs.get(counter - 2), ys.get(counter - 2));
+                double fi_3 = function.getValue(xs.get(counter - 3), ys.get(counter - 3));
+
+                double f1 = fi - fi_1;
+                double f2 = fi - 2 * fi_1 + fi_2;
+                double f3 = fi - 3 * fi_1 + 3 * fi_2 - fi_3;
+
+
+                xs.add(BigDecimal.valueOf(xs.get(counter)).add(BigDecimal.valueOf(h)).doubleValue());
+                ys.add(previousY + h * fi + Math.pow(h, 2) / 2 * f1 + 5 * Math.pow(h, 3) / 12 * f2 + 3 * Math.pow(h, 4) / 8 * f3);
+
+                counter++;
+                System.out.println(xs.get(counter) + " : " + ys.get(counter));
+
+            }
+
             return new Result(function, xs, ys);
         }
     }
