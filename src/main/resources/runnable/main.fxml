@@ -15,13 +15,13 @@
 
   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720" prefWidth="720">
 
-    <Button fx:id="submitButton" layoutX="463.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleSubmitEvent" prefHeight="30.0" prefWidth="64.0" text="Решить" />
+    <Button fx:id="submitButton" layoutX="515.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleSubmitEvent" prefHeight="30.0" prefWidth="64.0" text="Решить" />
 
     <TableView fx:id="dataTable" layoutX="247.0" layoutY="390.0" prefHeight="175.0" prefWidth="180.0">
       <columns>
-        <TableColumn fx:id="x" prefWidth="60.0" text="x" />
+        <TableColumn prefWidth="60.0" text="x" fx:id="x" />
         <TableColumn fx:id="y" prefWidth="60.0" text="y" />
-        <TableColumn fx:id="whatToDo" prefWidth="60.0" text="whatToDo" />
+        <TableColumn fx:id="exactY" prefWidth="60.0" text="exactY" />
       </columns>
     </TableView>
 
@@ -43,6 +43,9 @@
       <Label fx:id="eL_2" layoutX="112.0" layoutY="151.0" text="Label" />
       <Label fx:id="eL_3" layoutX="112.0" layoutY="200.0" text="Label" />
       <Label layoutX="63.0" layoutY="57.0" text="Выберите уравнение:" />
+      <Button fx:id="tB_1" layoutX="515.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleTablePickButton" prefHeight="30.0" prefWidth="64.0" text="Табл. 1" />
+      <Button fx:id="tB_2" layoutX="515.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleTablePickButton" prefHeight="30.0" prefWidth="64.0" text="Табл. 2" />
+      <Button fx:id="tB_3" layoutX="515.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleTablePickButton" prefHeight="30.0" prefWidth="64.0" text="Табл. 3" />
 
 
   </AnchorPane>
