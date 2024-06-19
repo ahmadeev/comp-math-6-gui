@@ -1,12 +1,17 @@
 package backend;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
-import static backend.Methods.getEquationByNumber;
+import static backend.Methods.getMethodByNumber;
+import static backend.Utils.exit;
+import static java.util.Objects.isNull;
 
 public class DifMath {
-    public static class Euler {
-        public static Result getValue(Function function, double y0, double a, double b, double h) {
+    public static class Euler extends Methods {
+        public Result getValue(Function function, double y0, double a, double b, double h) {
+            System.out.println("начинаю эйлерную");
+
             double x = a;
             double y = y0;
             double previousY;
@@ -24,7 +29,8 @@ public class DifMath {
                 System.out.printf("%.4f %6.6f %6.6f\n", x, y, function.getExactFunctionValue(x));
                 previousY = y;
                 y = previousY + h * functionValue;
-                x += h;
+
+                x = BigDecimal.valueOf(x).add(BigDecimal.valueOf(h)).doubleValue();
             }
             System.out.println();
 
@@ -32,8 +38,10 @@ public class DifMath {
         }
     }
 
-    public static class RungeKutta {
-        public static Result getValue(Function function, double y0, double a, double b, double h) {
+    public static class RungeKutta extends Methods {
+        public Result getValue(Function function, double y0, double a, double b, double h) {
+            System.out.println("начинаю рунгекутту");
+
             double x = a;
             double y = y0;
             double previousY;
@@ -58,7 +66,7 @@ public class DifMath {
                 previousY = y;
                 y = previousY + (double) 1 / 6 * (k1 + 2 * k2 + 2 * k3 + k4);
 
-                x += h;
+                x = BigDecimal.valueOf(x).add(BigDecimal.valueOf(h)).doubleValue();
             }
             System.out.println();
 
@@ -66,18 +74,32 @@ public class DifMath {
         }
     }
 
-    public static Result getAnyMethodLoop(Function function, double y0, double a, double b, double step, double precision, int power) {
+    public static class Adams extends Methods {
+
+        @Override
+        public Result getValue(Function function, double y0, double a, double b, double h) {
+            return null;
+        }
+    }
+
+    public static Result getAnyMethodLoop(int methodNumber, Function function, double y0, double a, double b, double step, double precision, int power) {
+
+        Methods method = getMethodByNumber(methodNumber);
+        if (isNull(method)) {
+            exit("", 1);
+            return null;
+        }
 
         Result previousResult;
-        Result result = DifMath.Euler.getValue(function, y0, a, b, step);
+        Result result = method.getValue(function, y0, a, b, step);
         int previousSize;
 
         do {
             step /= 2;
             previousResult = result;
             previousSize = previousResult.getX().size();
-            result = DifMath.Euler.getValue(function, y0, a, b, step);
-        } while ((result.getY().get(previousSize * 2 - 1) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, power) - 1) >= precision);
+            result = method.getValue(function, y0, a, b, step);
+        } while ((result.getY().get(previousSize * 2 - 2) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, power) - 1) >= precision);
 
         return result;
     }

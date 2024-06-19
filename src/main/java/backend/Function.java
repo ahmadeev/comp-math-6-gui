@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public abstract class Function {
     public abstract double getValue(double x, double y);
-    //public abstract ArrayList<Double> getExactValue(double[] x);
     public abstract double getExactFunctionValue(double x);
 
     public ArrayList<Double> getExactValue(ArrayList<Double> x) {

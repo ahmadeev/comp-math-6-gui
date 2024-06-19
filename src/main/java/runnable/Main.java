@@ -11,8 +11,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-/*    public static DifMath.Euler euler = new DifMath.Euler();
-    public static DifMath.RungeKutta rungeKutta = new DifMath.RungeKutta();*/
+    public static DifMath.Euler euler = new DifMath.Euler();
+    public static DifMath.RungeKutta rungeKutta = new DifMath.RungeKutta();
+    public static DifMath.Adams adams = new DifMath.Adams();
 
     public static Function functionOne = new Function.FunctionOne();
     public static Function functionTwo = new Function.FunctionTwo();

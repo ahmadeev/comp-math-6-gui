@@ -26,6 +26,13 @@ public class MainController implements Initializable {
     private Button eB_3;
 
     @FXML
+    private Label eL_1;
+    @FXML
+    private Label eL_2;
+    @FXML
+    private Label eL_3;
+
+    @FXML
     private TextField TF_1;
     @FXML
     private TextField TF_2;
@@ -65,8 +72,8 @@ public class MainController implements Initializable {
             } else {
                 Function function = getEquationByNumber(equationNumber);
 
-                Result eulerResult = getAnyMethodLoop(function, result[0], result[1], result[2], result[3], result[4], 1);
-                Result rungeKuttaResult = getAnyMethodLoop(function, result[0], result[1], result[2], result[3], result[4], 4);
+                Result eulerResult = getAnyMethodLoop(1, function, result[0], result[1], result[2], result[3], result[4], 1);
+                Result rungeKuttaResult = getAnyMethodLoop(2, function, result[0], result[1], result[2], result[3], result[4], 4);
             }
 
         } else {
@@ -128,6 +135,10 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("я родился!");
+
+        eL_1.setText(Function.FunctionOne.EQUATION);
+        eL_2.setText(Function.FunctionTwo.EQUATION);
+        eL_3.setText(Function.FunctionThree.EQUATION);
 
         TF_1.setText("-1");
         TF_2.setText("1");
