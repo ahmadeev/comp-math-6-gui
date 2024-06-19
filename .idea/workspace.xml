@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="88618bc2-b6de-4384-b49f-b6188f524b3a" name="Changes" comment="если что сюда">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/DifMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/DifMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/runnable/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runnable/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/runnable/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +93,8 @@
       <workItem from="1717271917041" duration="1458000" />
       <workItem from="1717313225617" duration="129000" />
       <workItem from="1718572369986" duration="1235000" />
-      <workItem from="1718747215443" duration="10462000" />
+      <workItem from="1718747215443" duration="10842000" />
+      <workItem from="1718766594124" duration="738000" />
     </task>
     <task id="LOCAL-00001" summary="начало, базочка">
       <option name="closed" value="true" />
@@ -284,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718759527064</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="если что сюда">
+      <option name="closed" value="true" />
+      <created>1718761877832</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1718761877832</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

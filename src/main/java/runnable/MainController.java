@@ -1,18 +1,19 @@
 package runnable;
 
-import backend.DifMath;
 import backend.Function;
 import backend.Result;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static backend.DifMath.getAnyMethodLoop;
+import static backend.Methods.getAnyMethodLoop;
 import static backend.Methods.getEquationByNumber;
 import static backend.Utils.showAlert;
 import static java.util.Objects.isNull;
@@ -71,9 +72,14 @@ public class MainController implements Initializable {
                 showAlert(Alert.AlertType.ERROR, "Ошибка!", "Выберите уравнение!");
             } else {
                 Function function = getEquationByNumber(equationNumber);
+                drawLine(result[1], result[2], function, "Точное решение");
 
                 Result eulerResult = getAnyMethodLoop(1, function, result[0], result[1], result[2], result[3], result[4], 1);
+                drawLine(eulerResult.getX(), eulerResult.getY(), "м. Эйлера");
                 Result rungeKuttaResult = getAnyMethodLoop(2, function, result[0], result[1], result[2], result[3], result[4], 4);
+                drawLine(rungeKuttaResult.getX(), rungeKuttaResult.getY(), "м. Рунге-Кутта (IV)");
+/*                Result adamsResult = getAnyMethodLoop(3, function, result[0], result[1], result[2], result[3], result[4], 4);
+                drawLine(adamsResult.getX(), adamsResult.getY(), "м. Адамса");*/
             }
 
         } else {
@@ -123,6 +129,32 @@ public class MainController implements Initializable {
         equationNumber = number;
     }
 
+    private void drawLine(ArrayList<Double> x, ArrayList<Double> y, String name) {
+        int size = x.size();
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+
+        for(int i = 0; i < size; i++) {
+            series.getData().add(new XYChart.Data<>(x.get(i), y.get(i)));
+        }
+
+        series.setName(name);
+        plot.setCreateSymbols(false);
+        plot.getData().add(series);
+    }
+
+    private void drawLine(double a, double b, Function function, String name) {
+        double step = 0.01;
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+
+        for(double i = a; i <= b; i += step) {
+            series.getData().add(new XYChart.Data<>(i, function.getExactFunctionValue(i)));
+        }
+
+        series.setName(name);
+        plot.setCreateSymbols(false);
+        plot.getData().add(series);
+    }
+
     private String validateNumber(String text) {
         text = text.replace(",", ".");
         if (text.matches("[+-]?([0-9]*[.])?[0-9]+")) {
@@ -134,7 +166,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("я родился!");
+        System.out.println("я родился!\n");
 
         eL_1.setText(Function.FunctionOne.EQUATION);
         eL_2.setText(Function.FunctionTwo.EQUATION);

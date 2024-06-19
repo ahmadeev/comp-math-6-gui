@@ -1,7 +1,7 @@
 package runnable;
 
-import backend.DifMath;
 import backend.Function;
+import backend.Methods.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,9 +11,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    public static DifMath.Euler euler = new DifMath.Euler();
-    public static DifMath.RungeKutta rungeKutta = new DifMath.RungeKutta();
-    public static DifMath.Adams adams = new DifMath.Adams();
+    public static Euler euler = new Euler();
+    public static RungeKutta rungeKutta = new RungeKutta();
+    public static Adams adams = new Adams();
 
     public static Function functionOne = new Function.FunctionOne();
     public static Function functionTwo = new Function.FunctionTwo();
