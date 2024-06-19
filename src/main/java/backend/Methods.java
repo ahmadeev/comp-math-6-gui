@@ -116,7 +116,7 @@ public abstract class Methods {
 
         @Override
         public Result getValue(Function function, double y0, double a, double b, double h) {
-
+            System.out.println("начинаю адамсить");
             Result firstThree = rungeKutta.getValue(function, y0, a, a + 3 * h, h);
 
             ArrayList<Double> xs = firstThree.getX();
@@ -143,33 +143,56 @@ public abstract class Methods {
                 ys.add(previousY + h * fi + Math.pow(h, 2) / 2 * f1 + 5 * Math.pow(h, 3) / 12 * f2 + 3 * Math.pow(h, 4) / 8 * f3);
 
                 counter++;
-                System.out.println(xs.get(counter) + " : " + ys.get(counter));
+                System.out.printf("%.4f %6.6f %6.6f\n", xs.get(counter), ys.get(counter), function.getExactFunctionValue(xs.get(counter)));
 
             }
-
+            System.out.println();
             return new Result(function, xs, ys);
         }
     }
 
     public static Result getAnyMethodLoop(int methodNumber, Function function, double y0, double a, double b, double step, double precision, int power) {
-
         Methods method = getMethodByNumber(methodNumber);
         if (isNull(method)) {
             exit("", 1);
             return null;
         }
 
-        Result previousResult;
-        Result result = method.getValue(function, y0, a, b, step);
-        int previousSize;
+        if (methodNumber == 3) {
+            double maxDeviation;
+            Result result;
+            do {
+                result = method.getValue(function, y0, a, b, step);
+                maxDeviation = findMaxDeviation(result);
+                step /= 2;
+            } while (maxDeviation >= precision);
 
-        do {
-            step /= 2;
-            previousResult = result;
-            previousSize = previousResult.getX().size();
-            result = method.getValue(function, y0, a, b, step);
-        } while ((result.getY().get(previousSize * 2 - 2) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, power) - 1) >= precision);
+            return result;
+        } else {
+            Result previousResult;
+            Result result = method.getValue(function, y0, a, b, step);
+            int previousSize;
 
-        return result;
+            do {
+                step /= 2;
+                previousResult = result;
+                previousSize = previousResult.getX().size();
+                result = method.getValue(function, y0, a, b, step);
+            } while ((result.getY().get(previousSize * 2 - 2) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, power) - 1) >= precision);
+            return result;
+        }
+    }
+
+    private static double findMaxDeviation(Result result) {
+        ArrayList<Double> y = result.getY();
+        ArrayList<Double> exactY = result.getExactY();
+
+        double maxDeviation = 0;
+        for(int i = 0; i < y.size(); i++) {
+            if (Math.abs(y.get(i) - exactY.get(i)) > maxDeviation) {
+                maxDeviation = Math.abs(y.get(i) - exactY.get(i));
+            }
+        }
+        return maxDeviation;
     }
 }
