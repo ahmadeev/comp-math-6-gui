@@ -116,7 +116,13 @@ public abstract class Methods {
 
         @Override
         public Result getValue(Function function, double y0, double a, double b, double h) {
-            return null;
+
+            Result firstThree = rungeKutta.getValue(function, y0, a, a + 3 * h, h);
+
+            ArrayList<Double> xs = firstThree.getX();
+            ArrayList<Double> ys = firstThree.getY();
+
+            return new Result(function, xs, ys);
         }
     }
 

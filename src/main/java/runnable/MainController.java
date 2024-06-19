@@ -21,6 +21,7 @@ import static backend.Methods.getAnyMethodLoop;
 import static backend.Methods.getEquationByNumber;
 import static backend.Utils.*;
 import static java.util.Objects.isNull;
+import static runnable.Main.adams;
 
 public class MainController implements Initializable {
     @FXML
@@ -87,16 +88,18 @@ public class MainController implements Initializable {
                 Function function = getEquationByNumber(equationNumber);
                 drawLine(result[1], result[2], function, "Точное решение");
 
-                Result eulerResult = getAnyMethodLoop(1, function, result[0], result[1], result[2], result[3], result[4], 1);
-                drawLine(eulerResult.getX(), eulerResult.getY(), "м. Эйлера");
-                Result rungeKuttaResult = getAnyMethodLoop(2, function, result[0], result[1], result[2], result[3], result[4], 4);
-                drawLine(rungeKuttaResult.getX(), rungeKuttaResult.getY(), "м. Рунге-Кутта (IV)");
-/*                Result adamsResult = getAnyMethodLoop(3, function, result[0], result[1], result[2], result[3], result[4], 4);
-                drawLine(adamsResult.getX(), adamsResult.getY(), "м. Адамса");*/
+                //Result eulerResult = getAnyMethodLoop(1, function, result[0], result[1], result[2], result[3], result[4], 1);
+                //drawLine(eulerResult.getX(), eulerResult.getY(), "м. Эйлера");
+                //Result rungeKuttaResult = getAnyMethodLoop(2, function, result[0], result[1], result[2], result[3], result[4], 4);
+                //drawLine(rungeKuttaResult.getX(), rungeKuttaResult.getY(), "м. Рунге-Кутта (IV)");
+                //Result adamsResult = getAnyMethodLoop(3, function, result[0], result[1], result[2], result[3], result[4], 4);
+                Result adamsResult = adams.getValue(function, result[0], result[1], result[2], result[3]);
+                drawLine(adamsResult.getX(), adamsResult.getY(), "м. Адамса");
 
                 resultStorage =  new ArrayList<>();
-                resultStorage.add(eulerResult);
-                resultStorage.add(rungeKuttaResult);
+                //resultStorage.add(eulerResult);
+                //resultStorage.add(rungeKuttaResult);
+                resultStorage.add(adamsResult);
             }
 
         } else {
