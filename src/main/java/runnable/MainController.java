@@ -1,6 +1,7 @@
 package runnable;
 
 import backend.DifMath;
+import backend.Function;
 import backend.Result;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,23 +63,10 @@ public class MainController implements Initializable {
             if (equationNumber == -1) {
                 showAlert(Alert.AlertType.ERROR, "Ошибка!", "Выберите уравнение!");
             } else {
+                Function function = getEquationByNumber(equationNumber);
 
-
-                double eulerStep = result[3];
-                Result previousEulerResult;
-                Result eulerResult = DifMath.Euler.getValue(getEquationByNumber(equationNumber), result[0], result[1], result[2], eulerStep);
-                int previousEulerSize;
-
-                do {
-                    eulerStep /= 2;
-                    previousEulerResult = eulerResult;
-                    previousEulerSize = previousEulerResult.getX().size();
-                    eulerResult = DifMath.Euler.getValue(getEquationByNumber(equationNumber), result[0], result[1], result[2], eulerStep);
-                } while ((eulerResult.getY().get(previousEulerSize * 2 - 1) - previousEulerResult.getY().get(previousEulerSize - 1)) / (Math.pow(2, 1) - 1) >= result[4]);
-
-                Result rungeKuttaResult = DifMath.RungeKutta.getValue(getEquationByNumber(equationNumber), result[0], result[1], result[2], result[3]);
-
-                rungeKuttaResult = getAnyMethodLoop(equationNumber, result[0], result[1], result[2], result[3], result[4]);
+                Result eulerResult = getAnyMethodLoop(function, result[0], result[1], result[2], result[3], result[4], 1);
+                Result rungeKuttaResult = getAnyMethodLoop(function, result[0], result[1], result[2], result[3], result[4], 4);
             }
 
         } else {

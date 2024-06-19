@@ -66,18 +66,18 @@ public class DifMath {
         }
     }
 
-    public static Result getAnyMethodLoop(int equationNumber, double y0, double a, double b, double step, double precision) {
+    public static Result getAnyMethodLoop(Function function, double y0, double a, double b, double step, double precision, int power) {
 
         Result previousResult;
-        Result result = DifMath.Euler.getValue(getEquationByNumber(equationNumber), y0, a, b, step);
+        Result result = DifMath.Euler.getValue(function, y0, a, b, step);
         int previousSize;
 
         do {
             step /= 2;
             previousResult = result;
             previousSize = previousResult.getX().size();
-            result = DifMath.Euler.getValue(getEquationByNumber(equationNumber), y0, a, b, step);
-        } while ((result.getY().get(previousSize * 2 - 1) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, 1) - 1) >= precision);
+            result = DifMath.Euler.getValue(function, y0, a, b, step);
+        } while ((result.getY().get(previousSize * 2 - 1) - previousResult.getY().get(previousSize - 1)) / (Math.pow(2, power) - 1) >= precision);
 
         return result;
     }
