@@ -23,7 +23,7 @@ public class Utils {
         alert.showAndWait();
     }
 
-    public static String formatArrayNumbers(ArrayList<Double> array, int decimals) {
+/*    public static String formatArrayNumbers(ArrayList<Double> array, int decimals) {
         if (isNull(array)) return null;
         StringBuilder result = new StringBuilder();
         for(double i : array) {
@@ -33,6 +33,6 @@ public class Utils {
         result.deleteCharAt(result.length() - 2);
 
         return result.toString();
-    }
+    }*/
 }
 

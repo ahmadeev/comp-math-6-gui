@@ -149,35 +149,38 @@ public class MainController implements Initializable {
 
     @FXML
     protected void handleTablePickButton(ActionEvent event) {
-        int number = -1;
-        Result result = null;
-        if (event.getSource() == tB_1) {
-            number = 1;
-            result = resultStorage.get(0);
-        } else if (event.getSource() == tB_2) {
-            number = 2;
-            result = resultStorage.get(1);
-        }  else if (event.getSource() == tB_3) {
-            number = 3;
-            result = resultStorage.get(2);
+        if (isNull(resultStorage)) {
+            showAlert(Alert.AlertType.ERROR, "Ошибка!", "Сначала решите уравнение!");
+        } else {
+            Result result = null;
+
+            if (event.getSource() == tB_1) {
+                result = resultStorage.get(0);
+            } else if (event.getSource() == tB_2) {
+                result = resultStorage.get(1);
+            }  else if (event.getSource() == tB_3) {
+                result = resultStorage.get(2);
+            }
+            if (isNull(result)) {
+                showAlert(Alert.AlertType.ERROR, "Ошибка!", "Сначала решите уравнение!");
+            } {
+                ArrayList<SetOfThree> array = new ArrayList<>();
+                ArrayList<Double> xArray = result.getX();
+                ArrayList<Double> yArray = result.getY();
+                ArrayList<Double> exactYArray = result.getExactY();
+                for(int i = 0; i < xArray.size(); i++) {
+                    array.add(new SetOfThree(xArray.get(i), yArray.get(i), exactYArray.get(i)));
+                }
+
+                ObservableList<SetOfThree> tableData = FXCollections.observableArrayList(array);
+
+                x.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("x"));
+                y.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("y"));
+                exactY.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("exactY"));
+
+                dataTable.setItems(tableData);
+            }
         }
-        if (number == -1 || isNull(result)) exit("", 1);
-
-        ArrayList<SetOfThree> array = new ArrayList<>();
-        ArrayList<Double> xArray = result.getX();
-        ArrayList<Double> yArray = result.getY();
-        ArrayList<Double> exactYArray = result.getExactY();
-        for(int i = 0; i < xArray.size(); i++) {
-            array.add(new SetOfThree(xArray.get(i), yArray.get(i), exactYArray.get(i)));
-        }
-
-        ObservableList<SetOfThree> tableData = FXCollections.observableArrayList(array);
-
-        x.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("x"));
-        y.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("y"));
-        exactY.setCellValueFactory(new PropertyValueFactory<SetOfThree, Double>("exactY"));
-
-        dataTable.setItems(tableData);
     }
 
     private void drawLine(ArrayList<Double> x, ArrayList<Double> y, String name) {
